@@ -1,0 +1,64 @@
+﻿@model Universidad.Models.Domain.Notice
+@{
+}
+<center>
+    <form class="w-40" asp-action="Add" method="post" enctype="multipart/form-data">
+        <h2 class="pb-10"><b>Agregar Noticia</b></h2>
+
+
+        <div class="input-container">
+            <label asp-for="Occurrence" class="w-40"><b>Nombre De La Noticia</b></label>
+            <input type="text" class="input" asp-for="Occurrence">
+        </div>
+        <div class="message-box pd-x-28 error">
+            <span asp-validation-for="Occurrence"> </span>
+        </div>
+
+        <div class="input-container">
+            <label asp-for="Publicationdate" class="w-40"><b>Fecha De Publicación</b></label>
+            <input type="text" class="input" asp-for="Publicationdate">
+        </div>
+        <div class="message-box pd-x-28 error">
+            <span asp-validation-for="Publicationdate"> </span>
+        </div>
+        <div class="input-container">
+            <label asp-for="Occurrence" class="w-40"><b>Imagen</b></label>
+            <input type="file" asp-for="ImageFile1">
+        </div>
+        <div class="message-box pd-x-28 error">
+            <span asp-validation-for="ImageFile1"> </span>
+        </div>
+
+        <div class="input-container">
+            <label asp-for="Catalogs" class="w-40"><b>Tipo De Noticia</b></label>
+            <select asp-items="Model.CatalogList" class="input" asp-for="Catalogs" multiple>
+                <option value="">------------------SELECCIONA UNA NOTICIA------------------</option>
+            </select>
+        </div>
+        <div class="message-box pd-x-28 error">
+            <span asp-validation-for="Catalogs"> </span>
+        </div>
+
+        <div class="input-container">
+            <label asp-for="Descripcion1" class="w-40"><b>Descripción De La Noticia</b></label>
+            <input type="text" class="input" asp-for="Descripcion1">
+        </div>
+        <div class="message-box pd-x-28 error">
+            <span asp-validation-for="Descripcion1"> </span>
+        </div>
+
+        @if (TempData["msg"] != null)
+        {
+            <div class="alert mb-1">
+                @TempData["msg"]
+            </div>
+        }
+        <br />
+        <br />
+        <center>
+            <button class="btnn btn-defaultt" type="submit">Guardar</button>
+            
+
+        </center>
+    </form>
+</center>

@@ -1,0 +1,30 @@
+﻿@model Universidad.Models.Domain.Catalog
+@{
+}
+<center>
+    <form class="w-40" asp-action="Update" method="post">
+        <h2 class="pb-10"><b>Actualizar Tipo De Noticia</b></h2>
+        <input type="hidden" class="input" asp-for="Id">
+
+        <div class="input-container">
+            <label asp-for="CatalogName" class="w-40"><b>Nombre De La Noticia</b></label>
+            <input type="text" class="input" asp-for="CatalogName">
+        </div>
+        <div class="message-box pd-x-28 error">
+            <span asp-validation-for="CatalogName"> </span>
+        </div>
+
+        @if (TempData["msg"] != null)
+        {
+            <div class="alert mb-1">
+                @TempData["msg"]
+            </div>
+        }
+        <br />
+        <br />
+        <center>
+            <button class="btnn btn-defaultt" type="submit">Guardar</button>
+            <a class="btnn btn-secc" href="/Catalog/CatalogList">Todos Los Tipos De Noticia</a>
+        </center>
+    </form>
+</center>

@@ -1,0 +1,125 @@
+﻿@model Universidad.Models.DTO.NoticeListVm
+@{
+    Layout = "_Layout";
+}
+
+   
+    
+        <div class="row ">
+            <div class="col-6">
+        <h2 align="center">MISIÓN</h2>
+        <H4 align="center">
+                            <b>
+                                Somos una institución de Educación Superior con carisma salesiano dedicada a la
+                                formación integral de la persona humana, por medio de la investigación, la ciencia,
+                                la cultura, la tecnología, la innovación y el compromiso con la comunidad para la construcción de una sociedad libre,
+                                justa y solidaria.
+                            </b>
+
+                        </H4>
+
+              
+
+                   
+                       
+                   
+                
+            </div>
+            <div class="col-6">
+        <h2 align="center">VISIÓN</h2>
+        <H4 align="center">
+                    <b>
+                        Una universidad salesiana, líder a nivel nacional y referente a nivel regional por su modelo educativo; reconocida por la
+                        innovación curricular; por el desarrollo profesional y la internacionalización de sus estudiantes, educadores y personal de gestión;
+                        por la ejecución de proyectos de investigación, desarrollo e innovación; por sus publicaciones de impacto; por sus programas de grado
+                        y postgrado acreditados internacionalmente; por sus programas a distancia únicos e innovadores; por el mejoramiento continuo de la calidad
+                        y por la gestión de sus recursos físicos, tecnológicos y financieros para la sostenibilidad de la institución.
+                    </b>
+                </H4>
+            </div>
+           
+        </div>
+       
+       
+    
+
+
+
+<br />
+<br />
+<br />
+<br />
+<div>
+    <center><h1>NOTICIAS</h1></center>
+    <br />
+    <br />
+    <br />
+
+<center>
+    <section class="search-bar">
+        <form method="get" asp-action="Index">
+            <input type="text" name="term" placeholder="Busca Una Noticia">
+            <button type="submit"><i class="fa fa-search"></i></button>
+            <a class="btnn btn-defaultt" href="/Home/Index">TODAS </a>
+        </form>
+    </section>
+</center>
+<br />
+<section class="movies">
+    @foreach (var notices in Model.NoticeList)
+    {
+        <div class="movie-card" onclick="window.location.href='/Home/NoticeDetail?NoticeId=@notices.Id'">
+            <div class="movie-image">
+                <img src="/Uploads/@notices.OccurrenceImage">
+            </div>
+            <div class="movie-info">
+                <h4>@notices.Occurrence</h4>
+
+
+
+
+            </div>
+        </div>
+    }
+</section>
+
+<div class="pagination">
+    @for (int i = 1; i <= Model.TotalPages1; i++)
+    {
+        if (i == Model.CurrentPage1)
+        {
+            <a href="/Home/Index?currentPage=@i&term=@Model.Term1" class="active">@i</a>
+        }
+        else
+        {
+            <a href="/Home/Index?currentPage=@i&term=@Model.Term1">@i</a>
+
+        }
+    }
+
+</div>
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<div class="row">
+    
+    <div class="col-6">
+        <center>
+    <iframe width="660" height="415" 
+        src="https://www.youtube.com/embed/5ZXNhf8yCmQ" title="YouTube video player" frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+        </iframe>
+        </center>
+    </div>
+    <div class="col-6">
+        <center>
+    <iframe width="660" height="415" src="https://www.youtube.com/embed/D3qZKu5ZBFY" title="YouTube video player" frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+   </iframe>
+        </center>
+    </div>
+
+</div>

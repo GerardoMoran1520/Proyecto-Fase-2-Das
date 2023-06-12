@@ -1,0 +1,36 @@
+﻿@model Universidad.Models.Domain.Presentation
+@{
+}
+<center>
+    <form class="w-40" asp-action="Add" method="post">
+        <h2 class="pb-10"><b>Agregar Presentación</b></h2>
+        <div class="input-container">
+            <label asp-for="Mision" class="w-40"><b>Misión</b></label>
+            <input type="text" class="input" asp-for="Mision">
+        </div>
+        <div class="message-box pd-x-28 error">
+            <span asp-validation-for="Mision"> </span>
+        </div>
+        <div class="input-container">
+            <label asp-for="Vision" class="w-40"><b> Visión</b></label>
+            <input type="text" class="input" asp-for="Vision">
+        </div>
+        <div class="message-box pd-x-28 error">
+            <span asp-validation-for="Vision"> </span>
+        </div>
+
+        @if (TempData["msg"] != null)
+        {
+            <div class="alert mb-1">
+                @TempData["msg"]
+            </div>
+        }
+
+        <br />
+        <br />
+        <center>
+            <button class="btnn btn-defaultt" type="submit">Guardar</button>
+            <a class="btnn btn-secc" href="/Presentation/PresentationList">Ver Presentación</a>
+        </center>
+    </form>
+</center>

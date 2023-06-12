@@ -1,0 +1,39 @@
+﻿@model Universidad.Models.DTO.CareerListVm
+@{
+}
+<center>
+    <div class="tbl-container">
+        <h2><b>Todas Las Carreras</b></h2>
+
+        <table>
+            <tr>
+
+                <th>Nombre De La Carrera</th>
+                <th>Tipo de Carrera</th>
+                <th>Imagen</th>
+                <th>Descripcion De La Carrera</th>
+                <th>Accion</th>
+            </tr>
+            @foreach (var item in Model.CareerList)
+            {
+                <tr>
+
+                    <td>@item.Profession</td>
+                    <td>@item.CategoryNames</td>
+                    <td><img style="height:100px;width:90px" src="/Uploads/@item.CareerImage" /></td>
+                    <td>@item.Descripcion</td>
+                    <td>
+                        <a href="/Career/Edit?id=@item.Id" class="btnn btn-secc"><i class="fa fa-edit"></i></a>
+                        <a onclick="return window.confirm('Estas seguro de eliminar está carrera?')" href="/Career/Delete?id=@item.Id" class="btnn btn-dangerr"><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <br />
+        <br />
+        <Center>
+            <a href="/Career/Add" class="btnn btn-secc">Regresar</a>
+        </Center>
+    </div>
+</center>

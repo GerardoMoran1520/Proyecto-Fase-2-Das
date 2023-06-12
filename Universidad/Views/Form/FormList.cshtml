@@ -1,0 +1,38 @@
+﻿@model Universidad.Models.DTO.FormListVm
+@{
+
+}
+<center>
+<div class="tbl-container">
+        <h2><b>Todas Las Consultas</b></h2>
+
+    <table>
+        <tr>
+            
+            <th>Tipo De Consulta</th>
+            <th>Correo Electrónico</th>
+            <th>Descripcion De La Consulta</th>
+            <th>Accion</th>
+        </tr>
+        @foreach (var item in Model.FormList)
+        {
+            <tr>
+             
+                <td>@item.HelpNames</td>
+                <td>@item.Email</td>
+                <td>@item.Question</td>
+                <td>
+                   
+                    <a onclick="return window.confirm('Estas seguro de eliminar está consulta?')" href="/Form/Delete?id=@item.Id" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <br />
+    <br />
+    <Center>
+        <a href="/Home/Index" class="btnn btn-secc">Regresar</a>
+    </Center>
+</div>
+</center>

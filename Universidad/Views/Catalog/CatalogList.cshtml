@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Universidad.Models.Domain.Catalog>
+@{
+}
+
+<div class="tbl-container">
+    <center>
+        <h2><b>Todos Los Tipos De Noticias</b></h2>
+    </center>
+
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Accion</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CatalogName</td>
+                <td>
+                    <a href="/Catalog/Edit?id=@item.Id" class="btnn btn-defaultt"><i class="fa fa-edit"></i></a>
+                    <a onclick="return window.confirm('Estas seguro de eliminar la carrera?')" href="/Catalog/Delete?id=@item.Id" class="btnn btn-dangerr"><i class="fa fa-trash"></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <br />
+    <br />
+    <center>
+        <a href="/Catalog/Add" class="btnn btn-secc">Regresar</a>
+    </center>
+</div>

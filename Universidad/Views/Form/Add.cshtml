@@ -1,0 +1,51 @@
+﻿@model Universidad.Models.Domain.Form
+@{
+}
+<center>
+<form class="w-40" asp-action="Add" method="post" enctype="multipart/form-data">
+        <h2 class="pb-10"><b>Agrega Tu Consulta Aquí</b></h2>
+
+  
+
+
+    <div class="input-container">
+        <label asp-for="Helps" class="w-40"><b>Tipo De Consulta</b></label>
+        <select asp-items="Model.HelpList" class="input" asp-for="Helps" multiple>
+            <option value="">------------------SELECCIONA UNA CONSULTA------------------</option>
+        </select>
+    </div>
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="Helps"> </span>
+    </div>
+
+    <div class="input-container">
+            <label asp-for="Email" class="w-40"><b>Correo Electrónico</b></label>
+        <input type="text" class="input" asp-for="Email">
+    </div>
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="Email"> </span>
+    </div>
+
+
+    <div class="input-container">
+        <label asp-for="Question" class="w-40"><b>Descripción De La Consulta</b></label>
+        <input type="text" class="input" asp-for="Question">
+    </div>
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="Question"> </span>
+    </div>
+
+    @if (TempData["msg"] != null)
+    {
+        <div class="alert mb-1">
+            @TempData["msg"]
+        </div>
+    }
+    <br />
+    <br />
+    <center>
+        <button class="btnn btn-defaultt" type="submit">Enviar</button>
+        
+    </center>
+</form>
+</center>

@@ -1,0 +1,57 @@
+﻿@model Universidad.Models.DTO.CareerListVm
+@{
+    Layout = "_Layout";
+}
+<center>
+    <section class="search-bar">
+        <form method="get" asp-action="Index">
+            <input type="text" name="term" placeholder="Busca Una Carrera">
+            <button type="submit"><i class="fa fa-search"></i></button>
+            <a class="btnn btn-defaultt" href="/Home/Careers">Todas </a>
+        </form>
+    </section>
+</center>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<section class="movies">
+    @foreach (var carrers in Model.CareerList)
+    {
+        <div class="movie-card" onclick="window.location.href='/Profession/CareerDetail?CareerId=@carrers.Id'">
+            <div class="movie-image">
+                <img src="/Uploads/@carrers.CareerImage">
+            </div>
+            <div class="movie-info">
+                <br>
+                <h4>@carrers.Profession</h4>
+
+
+
+
+            </div>
+        </div>
+    }
+</section>
+<br />
+<br />
+<br />
+<br />
+
+<div class="pagination">
+    @for (int i = 1; i <= Model.TotalPages; i++)
+    {
+        if (i == Model.CurrentPage)
+        {
+            <a href="/Profession/Carrers?currentPage=@i&term=@Model.Term" class="active">@i</a>
+        }
+        else
+        {
+            <a href="/Profession/Carrers?currentPage=@i&term=@Model.Term">@i</a>
+
+        }
+    }
+
+</div>

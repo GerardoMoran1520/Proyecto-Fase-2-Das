@@ -1,0 +1,30 @@
+﻿@model Universidad.Models.Domain.Help
+@{
+}
+<center>
+<form class="w-40" asp-action="Update" method="post">
+        <h2 class="pb-10"><b>Actualizar Tipo De Consulta</b></h2>
+    <input type="hidden" class="input" asp-for="Id">
+
+    <div class="input-container">
+            <label asp-for="HelpName" class="w-40"><b>Nombre De La Consulta</b></label>
+        <input type="text" class="input" asp-for="HelpName">
+    </div>
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="HelpName"> </span>
+    </div>
+
+    @if (TempData["msg"] != null)
+    {
+        <div class="alert mb-1">
+            @TempData["msg"]
+        </div>
+    }
+    <br />
+    <br />
+    <center>
+        <button class="btnn btn-defaultt" type="submit">Guardar</button>
+        <a class="btnn btn-secc" href="/Help/HelpList">Todos Los Tipos De Consulta</a>
+    </center>
+</form>
+</center>

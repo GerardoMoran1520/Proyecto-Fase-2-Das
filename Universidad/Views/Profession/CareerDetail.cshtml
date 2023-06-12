@@ -1,0 +1,30 @@
+﻿@model Universidad.Models.Domain.Career
+@{
+    Layout = "_Layout";
+}
+<div class="movie-detail w-90 m-auto" >
+   
+
+    <div class="detail-container">
+        <h2><b>@Model.Profession</b></h2>
+        <br />
+        <br />
+        <h3><b>Descripción:</b> @Model.Descripcion</h3>       
+           
+               <div class="img-container" >
+
+                <img alt="image" src="/Uploads/@Model.CareerImage">
+            
+            </div>
+           
+        
+       
+    </div>
+</div>
+<br />
+<br />
+<center>
+<div class="w-80 m-auto">
+    <a href="/Profession/Carrers" class="btnn btn-defaultt">Regresar</a>
+</div>
+</center>

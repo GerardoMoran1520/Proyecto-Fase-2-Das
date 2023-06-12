@@ -1,0 +1,74 @@
+﻿@model Universidad.Models.Domain.Notice
+@{
+}
+<center>
+    <form class="w-40" asp-action="Edit" method="post" enctype="multipart/form-data">
+        <h2 class="pb-10"><b>ACTUALIZAR NOTICIA</b></h2>
+        <input type="hidden" class="input" asp-for="Id">
+        <input type="hidden" class="input" asp-for="OccurrenceImage">
+
+        <div class="input-container">
+            <label asp-for="Occurrence" class="w-40">Nombre De La Noticia</label>
+            <input type="text" class="input" asp-for="Occurrence">
+        </div>
+        <div class="message-box pd-x-28 error">
+            <span asp-validation-for="Occurrence"> </span>
+        </div>
+
+        <div class="input-container">
+            <label asp-for="Publicationdate" class="w-40"><b>Fecha De Publicación</b></label>
+            <input type="text" class="input" asp-for="Publicationdate">
+        </div>
+        <div class="message-box pd-x-28 error">
+            <span asp-validation-for="Publicationdate"> </span>
+        </div>
+
+        <div class="input-container">
+            <label asp-for="Occurrence" class="w-40">Imagen</label>
+            <input type="file" asp-for="ImageFile1">
+        </div>
+        <div class="message-box pd-x-28 error">
+            <span asp-validation-for="ImageFile1"> </span>
+        </div>
+
+        <div class="input-container">
+            <label asp-for="Catalogs" class="w-40">Tipo De Noticia</label>
+            <select asp-items="Model.MultiCatalogList" class="input" asp-for="Catalogs" multiple>
+                <option value="">------------------SELECCIONA UNA NOTICIA------------------</option>
+            </select>
+        </div>
+        <div class="message-box pd-x-28 error">
+            <span asp-validation-for="Catalogs"> </span>
+        </div>
+
+
+        <div class="input-container">
+            <label asp-for="Descripcion1" class="w-40">Descripción De La Noticia</label>
+            <input type="text" class="input" asp-for="Descripcion1">
+        </div>
+        <div class="message-box pd-x-28 error">
+            <span asp-validation-for="Descripcion1"> </span>
+        </div>
+
+
+
+       
+
+        @if (TempData["msg"] != null)
+        {
+            <div class="alert mb-1">
+                @TempData["msg"]
+            </div>
+        }
+
+        <center>
+            <button class="btnn btn-defaultt" type="submit">Editar</button>
+           
+
+        </center>
+
+    </form>
+</center>
+
+
+
